@@ -30,7 +30,7 @@ while True:
         camera.capture('output/image.jpg')
         im = Image.open("output/image.jpg")
         im = im.crop(box)
-        enhancer = ImageEnhance.Contrast(imc)
+        enhancer = ImageEnhance.Contrast(im)
         im = enhancer.enhance(5)
         text = pytesseract.image_to_string(im)
         if text != "":
