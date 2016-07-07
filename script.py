@@ -12,8 +12,7 @@ seed = raw_input("enter your seed: ")
 text_file = open("output/text.txt", "w")
 text_file.write(seed)
 text_file.close()
-os.system('lp -d Star-TUP900-STR-T-U001 -o 
-PresenterAction=$
+os.system('lp -d Star-TUP900-STR-T-U001 -o PresenterAction=4NoLoopNoHoldEject output/text.txt')
 
 while True:
         time.sleep(10)
@@ -22,11 +21,9 @@ while True:
         #im = im.filter(ImageFilter.BLUR)
         text = pytesseract.image_to_string(im)
         if text != "":
-                text_file = open("output/text.txt", 
-"w")
+                text_file = open("output/text.txt", "w")
                 text_file.write(text)
                 text_file.close()
-                os.system('lp -d 
-Star-TUP900-STR-T-U001 -o $
+                os.system('lp -d Star-TUP900-STR-T-U001 -o PresenterAction=4NoLoopNoHoldEject output/text.txt')
         else:
                 sys.exit()
