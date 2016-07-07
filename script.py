@@ -11,7 +11,7 @@ import pytesseract
 from PIL import ImageFilter
 
 left = 900
-top = 850
+top = 800
 width = 1000
 height = 200
 box = (left, top, left+width, top+height)
@@ -31,7 +31,7 @@ while True:
         im = Image.open("output/image.jpg")
         im = im.crop(box)
         enhancer = ImageEnhance.Contrast(im)
-        im = enhancer.enhance(5)
+        im = enhancer.enhance(3)
         text = pytesseract.image_to_string(im)
         if text != "":
                 text_file = open("output/text.txt", "w")
